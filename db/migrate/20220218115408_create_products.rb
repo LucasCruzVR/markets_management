@@ -1,9 +1,9 @@
 class CreateProducts < ActiveRecord::Migration[7.0]
   def change
-    create_table :products, comment:"Producs table" do |t|
-      t.string :name, null: false
-      t.integer :category, null: false, default: 0
-      t.string :barcode, null: false
+    create_table :products, comment:"Products table" do |t|
+      t.string :name, null: false, comment: "Product name"
+      t.integer :category, null: false, default: 0, comment: "Define which category Product belongs"
+      t.string :barcode, null: false, comment: "Barcode number"
       t.timestamps
     end
 

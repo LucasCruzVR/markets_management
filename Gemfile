@@ -60,7 +60,6 @@ group :development, :test do
 
   gem 'factory_bot_rails'
   gem 'faker', '>= 2.13.0'
-  gem 'shoulda-matchers', '>= 4.3.0'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
@@ -80,4 +79,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'shoulda-matchers', '~> 5.0'
 end
