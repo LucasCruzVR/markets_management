@@ -1,0 +1,1 @@
+json.call(@product, :id, :name, :category, :barcode)
