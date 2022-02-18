@@ -1,0 +1,29 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: markets_management
+  host: "postgres"
+  port: 5432
+  username: "postgres"
+  password: "postgres"
+
+
+test:
+  <<: *default
+  database: markets_management_test
+  host: "postgres"
+  port: 5432
+  username: "postgres"
+  password: "postgres"
+
+production:
+  <<: *default
+  database: markets_management_production
+  username: markets_management
+  password: <%= ENV["MARKETS_MANAGEMENT_DATABASE_PASSWORD"] %>
