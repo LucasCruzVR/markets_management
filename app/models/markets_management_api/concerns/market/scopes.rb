@@ -6,7 +6,11 @@ module MarketsManagementApi
 
         included do
           scope :by_name, lambda { |name|
-            where('name ILIKE ?', "%#{name}%") if name.present?
+            where('markets.name ILIKE ?', "%#{name}%") if name.present?
+          }
+
+          scope :by_product_name, lambda { |product_name|
+            joins(:products).merge(MarketsManagementApi::Models::Product.by_name(product_name)) if product_name.present?
           }
         end
       end

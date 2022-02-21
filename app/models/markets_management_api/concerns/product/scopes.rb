@@ -6,7 +6,7 @@ module MarketsManagementApi
 
         included do
           scope :by_name, lambda { |name|
-            where('name ILIKE ?', "%#{name}%") if name.present?
+            where('products.name ILIKE ?', "%#{name}%") if name.present?
           }
         end
       end

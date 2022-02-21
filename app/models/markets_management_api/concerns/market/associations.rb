@@ -10,6 +10,7 @@ module MarketsManagementApi
                    inverse_of: :market
 
           has_many :products, through: :markets_products, dependent: :destroy
+          accepts_nested_attributes_for :markets_products, allow_destroy: true
         end
       end
     end

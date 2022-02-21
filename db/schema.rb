@@ -14,7 +14,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_19_132008) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "markets", force: :cascade do |t|
+  create_table "markets", comment: "Markets table", force: :cascade do |t|
     t.string "name", null: false, comment: "Market's name"
     t.string "phone", comment: "Market's phone number"
     t.string "address", comment: "Market's address"
@@ -31,10 +31,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_19_132008) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "products", comment: "Producs table", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "category", default: 0, null: false
-    t.string "barcode", null: false
+  create_table "products", comment: "Products table", force: :cascade do |t|
+    t.string "name", null: false, comment: "Product name"
+    t.integer "category", default: 0, null: false, comment: "Define which category Product belongs"
+    t.string "barcode", null: false, comment: "Barcode number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_products_on_name", unique: true
