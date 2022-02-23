@@ -17,5 +17,28 @@ RSpec.describe MarketsManagementApi::Models::Product, type: :model do
       product.save
       expect(product.name).to eq('paper')
     end
+
+    it 'Remove whitespace' do
+      product = FactoryBot.build(:products)
+      product.barcode = ' 123456789123   4 '
+      product.save
+      expect(product.barcode).to eq('1234567891234')
+    end
+  end
+
+  context 'Scopes' do
+    it 'by_name' do
+      product1 = FactoryBot.create(:products)
+      FactoryBot.create(:products)
+      FactoryBot.create(:products)
+
+      findProduct = MarketsManagementApi::Models::Product.by_name(product1.name)
+      expect(findProduct.length).to eq(1)
+      expect(findProduct.first).to eq(product1)
+    end
+  end
+
+  context 'Associations' do
+    it { should have_many(:markets_products).inverse_of(:product) }
   end
 end

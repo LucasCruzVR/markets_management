@@ -63,6 +63,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker', '>= 2.13.0'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'airborne'
 end
 
 group :development do

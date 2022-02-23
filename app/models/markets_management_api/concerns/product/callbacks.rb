@@ -15,7 +15,7 @@ module MarketsManagementApi
         end
 
         def remove_whitespace
-          self.barcode = barcode.gsub(/\s+/, '')
+          self.barcode = barcode&.gsub(/\s+/, '')
         end
       end
     end

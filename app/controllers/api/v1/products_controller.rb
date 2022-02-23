@@ -13,7 +13,7 @@ module Api
         if context.success?
           render :show, status: :created
         else
-          render json: formatError(context, :product), status: context.status | 400
+          render json: formatError(context, :product), status: context.status
         end
       end
 
@@ -24,7 +24,7 @@ module Api
         if context.success?
           render :show, status: :ok
         else
-          render json: formatError(context, :product), status: context.status | 400
+          render json: formatError(context, :product), status: context.status
         end
       end
 
@@ -33,7 +33,7 @@ module Api
         if context.success?
           head :ok
         else
-          render json: formatError(context, :product), status: context.status | 400
+          render json: formatError(context, :product), status: context.status
         end
       end
 

@@ -3,7 +3,7 @@ module MarketsManagementApi
     class Product < ApplicationRecord
       self.table_name = 'products'
 
-      enum category: { Convenience: 0, Shopping: 1, Specialty: 2, Unsought: 3 }
+      enum categories: { Convenience: 0, Shopping: 1, Specialty: 2, Unsought: 3 }, _prefix: :category
 
       include MarketsManagementApi::Concerns::Product::Associations
       include MarketsManagementApi::Concerns::Product::Callbacks
